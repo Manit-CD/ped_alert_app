@@ -44,13 +44,11 @@ function Content() {
                         <h3>We encountered an error...</h3>
                         <p>Try Refreshing the page</p>
                     </div>
+                ) : loader ? (
+                    <Loader />
                 ) : (
                     <Dashboard data={data} />
                 )}
-
-                {/* loader ? (
-                    <Loader />
-                ) :  */}
             </div>
         </>
     );
