@@ -99,14 +99,14 @@ const Dashboard = ({ data }) => {
     // Extract years dynamically from the data
     const uniqueYears = [
         ...new Set(
-            locations.map((item) => new Date(item.timestamp).getFullYear()) //data.map
+            data.map((item) => new Date(item.timestamp).getFullYear()) //data.map
         ),
     ];
 
     // console.log(">>>>>>>>>>>", uniqueYears);
 
     // Filter and sort data by month
-    const filteredData = locations //data
+    const filteredData = data //data
         .filter(
             (item) =>
                 new Date(item.timestamp).getFullYear().toString() ===

@@ -16,7 +16,9 @@ function Content() {
             headers: {
                 Authorization: `Token ${token}`,
                 "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
             },
+            mode: "no-cors",
         })
             .then((response) => {
                 if (!response.ok) {

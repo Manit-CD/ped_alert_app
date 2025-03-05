@@ -130,6 +130,12 @@ button {
     border-bottom: 3px solid gray;
 }
 
+@media (max-width: 630px) {
+    .content-container h1 {
+        font-size: 10vw;
+    }
+}
+
 .dashboard-entries-container {
     line-height: 0.3rem;
 }
@@ -319,5 +325,11 @@ button {
 
 .error-container {
     position: absolute;
-    transform: translate(35vw, 35vh);
+    transform: translate(33vw, 33vh);
+}
+
+@media (max-width: 630px) {
+    .error-container {
+        transform: translate(10vw, 25vh);
+    }
 }

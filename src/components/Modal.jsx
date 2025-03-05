@@ -45,7 +45,7 @@ function Modal({ data }) {
                             <div className="tab-content">
                                 {activeTab === "places" && (
                                     <ul>
-                                        {data?.data?.map((item, index) => {
+                                        {uniquePlaces?.map((item, index) => {
                                             // uniquePlaces.map...
                                             return (
                                                 <>
