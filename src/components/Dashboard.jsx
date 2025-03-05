@@ -174,7 +174,7 @@ const Dashboard = ({ data }) => {
                 <button
                     onClick={() =>
                         exportToExcelByMonth(
-                            locations,
+                            data,
                             selectedFields,
                             newFieldNames
                         )
@@ -207,7 +207,7 @@ const Dashboard = ({ data }) => {
             >
                 <div className="modal-wrapper">
                     <div>
-                        <Modal data={details} />
+                        <Modal data={data} />
                     </div>
                 </div>
                 <button onClick={handleCloseClick}>Close</button>
