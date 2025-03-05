@@ -54,7 +54,7 @@ function Modal({ data }) {
                                                         className="details-wrapper"
                                                     >
                                                         <div className="details-container">
-                                                            <p>{item.place}</p>
+                                                            <p>{item}</p>
                                                             {/* item */}
                                                         </div>
                                                         <hr />
