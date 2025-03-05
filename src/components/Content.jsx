@@ -26,11 +26,13 @@ function Content() {
                 return response.json();
             })
             .then((data) => {
+                console.log(data);
                 setData(data);
                 setLoader(false);
                 setError(false);
             })
             .catch((error) => {
+                console.log("---------", error);
                 setLoader(false);
                 setError(true);
             });
