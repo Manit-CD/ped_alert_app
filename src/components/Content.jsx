@@ -11,14 +11,13 @@ function Content() {
     useEffect(() => {
         const token = "007c7643f181104371e583667baccece44de71ab";
 
-        fetch("https://alert-backend-5mxl.onrender.com/auth/alerts/", {
+        fetch("/api/alerts/", {
             method: "GET",
+            mode: "cors",
             headers: {
                 Authorization: `Token ${token}`,
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "*",
             },
-            mode: "no-cors",
         })
             .then((response) => {
                 if (!response.ok) {
