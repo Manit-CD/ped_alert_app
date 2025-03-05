@@ -207,7 +207,7 @@ const Dashboard = ({ data }) => {
             >
                 <div className="modal-wrapper">
                     <div>
-                        <Modal data={data} />
+                        <Modal data={details} />
                     </div>
                 </div>
                 <button onClick={handleCloseClick}>Close</button>
