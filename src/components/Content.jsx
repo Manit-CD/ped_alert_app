@@ -11,9 +11,9 @@ function Content() {
     useEffect(() => {
         const token = "007c7643f181104371e583667baccece44de71ab";
 
-        fetch("/api/alerts/", {
-            method: "GET",
-            mode: "cors",
+        fetch("https://alert-backend-5mxl.onrender.com/auth/alerts/", {
+            method: "OPTIONS",
+            // mode: "cors",
             headers: {
                 Authorization: `Token ${token}`,
                 "Content-Type": "application/json",
@@ -26,13 +26,12 @@ function Content() {
                 return response.json();
             })
             .then((data) => {
-                console.log(data);
                 setData(data);
                 setLoader(false);
                 setError(false);
             })
             .catch((error) => {
-                console.error("---------", error);
+                console.error("-------", error);
                 setLoader(false);
                 setError(true);
             });
