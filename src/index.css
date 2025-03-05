@@ -28,14 +28,32 @@ button {
 .home-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+
     align-items: center;
     justify-content: center;
 
     height: 100vh;
 }
 
+.home-container > div,
+.pin-wrapper {
+    flex: 1;
+    min-width: 250px;
+}
+
+@media (max-width: 630px) {
+    .home-container > div:first-child {
+        display: none;
+    }
+
+    .pin-wrapper {
+        flex: 1 1 100%;
+    }
+}
+
 .home-container h1 {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
 }
 
 .logo-container {

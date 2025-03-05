@@ -1,41 +1,42 @@
 {
-  "name": "ped-app",
-  "version": "1.0.0",
-  "main": "tailwind.config.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@react-google-maps/api": "^2.20.6",
-    "tailwindcss": "^4.0.9"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "dependencies": {
-    "classnames": "^2.5.1",
-    "file-saver": "^2.0.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-scripts": "^5.0.1",
-    "react-spinners": "^0.15.0",
-    "web-vitals": "^4.2.4",
-    "xlsx": "^0.18.5"
-  }
+    "name": "ped-app",
+    "version": "1.0.0",
+    "main": "tailwind.config.js",
+    "proxy": "https://alert-backend-5mxl.onrender.com/",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "eject": "react-scripts eject"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@react-google-maps/api": "^2.20.6",
+        "tailwindcss": "^4.0.9"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "dependencies": {
+        "classnames": "^2.5.1",
+        "file-saver": "^2.0.5",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-scripts": "^5.0.1",
+        "react-spinners": "^0.15.0",
+        "web-vitals": "^4.2.4",
+        "xlsx": "^0.18.5"
+    }
 }
