@@ -7,16 +7,9 @@ const mapContainerStyle = {
     height: "30rem",
 };
 
-const center = {
-    lat: 37.7749,
-    lng: -122.4194,
-};
+const center = { lat: 23.2599, lng: 77.4126 };
 
-const cords = [];
-
-cords = locations.map(({ lat, lng }) => ({ lat, lng }));
-
-const Maps = () => {
+const Maps = ({ locations }) => {
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8",
         libraries: ["marker"],
@@ -24,16 +17,20 @@ const Maps = () => {
 
     const mapRef = useRef(null);
 
+    const cords = [];
+
+    cords = locations.map(({ lat, lng }) => ({ lat, lng }));
+
     useEffect(() => {
         const markers = [];
 
         if (isLoaded && mapRef.current) {
             const map = mapRef.current;
 
-            locations.forEach((location) => {
+            cords.forEach((location) => {
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     map,
-                    position: { lat: cords.lat, lng: cords.lng },
+                    position: { lat: location.lat, lng: location.lng },
                     title: location.title,
                 });
 
