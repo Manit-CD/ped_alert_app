@@ -1,7 +1,5 @@
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-
-const LIBRARIES = ["marker"]; // Define libraries as a constant
 
 const mapContainerStyle = {
     position: "relative",
@@ -13,24 +11,20 @@ const center = { lat: 23.2599, lng: 77.4126 };
 
 const Maps = ({ locations }) => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, // Use environment variable
-        libraries: LIBRARIES,
+        googleMapsApiKey: "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8",
+        libraries: ["marker"],
     });
 
     const mapRef = useRef(null);
 
-    const cords = useMemo(() => {
-        return locations.map(({ lat, lng }) => ({ lat, lng }));
-    }, [locations]);
+    var cords = [];
+
+    cords = locations.map(({ lat, lng }) => ({ lat, lng }));
 
     useEffect(() => {
         const markers = [];
 
-        if (
-            isLoaded &&
-            mapRef.current &&
-            window.google?.maps?.marker?.AdvancedMarkerElement
-        ) {
+        if (isLoaded && mapRef.current) {
             const map = mapRef.current;
 
             cords.forEach((location) => {
@@ -49,7 +43,7 @@ const Maps = ({ locations }) => {
                 marker.map = null;
             });
         };
-    }, [isLoaded, cords]);
+    }, [isLoaded]);
 
     if (loadError) return <div>Error loading maps</div>;
     if (!isLoaded) return <div>Loading Maps...</div>;
