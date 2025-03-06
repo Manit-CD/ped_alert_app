@@ -1,63 +1,64 @@
-import React, { useState } from "react";
-import {
-    GoogleMap,
-    LoadScript,
-    Marker,
-    AdvancedMarkerElement,
-} from "@react-google-maps/api";
+import React, { useRef, useEffect } from "react";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
-const containerStyle = {
+const mapContainerStyle = {
     position: "relative",
     width: "100%",
     height: "30rem",
 };
 
-const center = { lat: 23.2599, lng: 77.4126 }; // Center the map
+const center = {
+    lat: 37.7749,
+    lng: -122.4194,
+};
 
-const GoogleMapComponent = ({ locations }) => {
-    const API_KEY = "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8";
+const cords = [];
 
-    var cords = [];
+cords = locations.map(({ lat, lng }) => ({ lat, lng }));
 
-    // cords =
-    //     locations.length > 1
-    //         ? locations.map(({ lat, lng }) => ({ lat, lng }))
-    //         : (cords = { lat: 28.7041, lng: 77.1025 });
+const Maps = () => {
+    const { isLoaded, loadError } = useLoadScript({
+        googleMapsApiKey: "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8",
+        libraries: ["marker"],
+    });
 
-    cords = locations.map(({ lat, lng }) => ({ lat, lng }));
+    const mapRef = useRef(null);
+
+    useEffect(() => {
+        const markers = [];
+
+        if (isLoaded && mapRef.current) {
+            const map = mapRef.current;
+
+            locations.forEach((location) => {
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    map,
+                    position: { lat: cords.lat, lng: cords.lng },
+                    title: location.title,
+                });
+
+                markers.push(marker);
+            });
+        }
+
+        return () => {
+            markers.forEach((marker) => {
+                marker.map = null;
+            });
+        };
+    }, [isLoaded]);
+
+    if (loadError) return <div>Error loading maps</div>;
+    if (!isLoaded) return <div>Loading Maps...</div>;
 
     return (
-        <div className="map-component-container">
-            <LoadScript googleMapsApiKey={API_KEY}>
-                <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={10}
-                >
-                    {/* Adding multiple markers */}
-                    {/* {cords.length > 1 ? ( */}
-                    {cords.map((location, index) => (
-                        <div>
-                            <AdvancedMarkerElement
-                                key={index}
-                                position={location}
-                            />
-                        </div>
-                    ))}
-
-                    {/* {
-                        cords.forEach(location => {
-                            new AdvancedMarkerElement({
-                                map: map,
-                                position: location,
-                                title: location.title
-                            });
-                        })
-                    } */}
-                </GoogleMap>
-            </LoadScript>
-        </div>
+        <GoogleMap
+            mapContainerStyle={mapContainerStyle}
+            zoom={6}
+            center={center}
+            onLoad={(map) => (mapRef.current = map)}
+        />
     );
 };
 
-export default GoogleMapComponent;
+export default Maps;
