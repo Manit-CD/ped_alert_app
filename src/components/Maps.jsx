@@ -16,7 +16,6 @@ const center = { lat: 23.2599, lng: 77.4126 }; // Center the map
 
 const GoogleMapComponent = ({ locations }) => {
     const API_KEY = "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8";
-    // AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8
 
     var cords = [];
 
