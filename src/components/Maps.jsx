@@ -60,7 +60,6 @@ const Maps = ({ locations }) => {
             zoom={6}
             center={center}
             onLoad={(map) => (mapRef.current = map)}
-            mapId="a9847d373beb11b"
         />
     );
 };
