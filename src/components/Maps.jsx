@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import {
+    GoogleMap,
+    LoadScript,
+    Marker,
+    AdvancedMarkerElement,
+} from "@react-google-maps/api";
 
 const containerStyle = {
     position: "relative",
@@ -13,12 +18,14 @@ const GoogleMapComponent = ({ locations }) => {
     const API_KEY = "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8";
     // AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8
 
-    var cords = {};
+    var cords = [];
 
-    cords =
-        locations.length > 1
-            ? locations.map(({ lat, lng }) => ({ lat, lng }))
-            : (cords = { lat: 28.7041, lng: 77.1025 });
+    // cords =
+    //     locations.length > 1
+    //         ? locations.map(({ lat, lng }) => ({ lat, lng }))
+    //         : (cords = { lat: 28.7041, lng: 77.1025 });
+
+    cords = locations.map(({ lat, lng }) => ({ lat, lng }));
 
     return (
         <div className="map-component-container">
@@ -29,18 +36,25 @@ const GoogleMapComponent = ({ locations }) => {
                     zoom={10}
                 >
                     {/* Adding multiple markers */}
-                    {cords.length > 1 ? (
-                        cords.map((location, index) => (
-                            <div>
-                                <Marker key={index} position={location} />
-                            </div>
-                        ))
-                    ) : (
+                    {/* {cords.length > 1 ? ( */}
+                    {cords.map((location, index) => (
                         <div>
-                            <h1>Nahhh</h1>
-                            <Marker position={center} />
+                            <AdvancedMarkerElement
+                                key={index}
+                                position={location}
+                            />
                         </div>
-                    )}
+                    ))}
+
+                    {/* {
+                        cords.forEach(location => {
+                            new AdvancedMarkerElement({
+                                map: map,
+                                position: location,
+                                title: location.title
+                            });
+                        })
+                    } */}
                 </GoogleMap>
             </LoadScript>
         </div>
