@@ -13,7 +13,7 @@ const center = { lat: 23.2599, lng: 77.4126 };
 
 const Maps = ({ locations }) => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: "AIzaSyBrmTgytSySjG_Hr2YyrcPY0PNdOHJ6nq8", // Use environment variable
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, // Use environment variable
         libraries: LIBRARIES,
     });
 
