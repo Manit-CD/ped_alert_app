@@ -17,7 +17,7 @@ const Maps = ({ locations }) => {
 
     const mapRef = useRef(null);
 
-    var cords = [];
+    const cords = [];
 
     cords = locations.map(({ lat, lng }) => ({ lat, lng }));
 
