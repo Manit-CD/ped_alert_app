@@ -12,7 +12,7 @@ function Modal({ data }) {
         ...new Set(data.data.map((location) => location.place)),
     ];
 
-    console.log(">>>>>>>>>>>>>", uniquePlaces);
+    // console.log(">>>>>>>>>>>>>", uniquePlaces);
 
     return (
         <>
