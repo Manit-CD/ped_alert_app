@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
     const { url } = req.query; // Extract the backend URL from the query parameters
-    const token = "007c7643f181104371e583667baccece44de71ab"; // Your token
+    const token = process.env.AUTH_TOKEN; // Your token
 
     try {
         // Forward the request to the backend

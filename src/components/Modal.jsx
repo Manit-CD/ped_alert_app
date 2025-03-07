@@ -12,6 +12,10 @@ function Modal({ data }) {
         ...new Set(data.data.map((location) => location.place)),
     ];
 
+    // const uniqueTime = [
+    //     ...new Set(data.data.map((record) => record.time)),
+    // ];
+
     // console.log(">>>>>>>>>>>>>", uniquePlaces);
 
     return (

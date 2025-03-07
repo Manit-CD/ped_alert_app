@@ -9,10 +9,9 @@ function Content() {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        const token = "007c7643f181104371e583667baccece44de71ab";
+        // const token = "007c7643f181104371e583667baccece44de71ab";
 
-        const backendUrl =
-            "https://alert-backend-5mxl.onrender.com/auth/alerts/";
+        const backendUrl = process.env.BACKEND_URL;
 
         fetch(`/api/proxy?url=${encodeURIComponent(backendUrl)}`, {
             method: "GET",

@@ -27,3 +27,6 @@ src/components/map_code.txt
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+.env
