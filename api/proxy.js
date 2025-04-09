@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
     const { url } = req.query;
-    const token = "007c7643f181104371e583667baccece44de71ab";
+    const token = "b36eabc1a755b335ba1c38945d924f05a9ac824d";
 
     try {
         const response = await fetch(url, {
